@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dock 欄位數量 (可改為 4, 5, 6, 7) -->
+    <integer name="columns">5</integer>
+
+    <!-- 預設優先排入底部 Dock 的常用電視 App Package Name -->
+    <string-array name="dock_apps">
+        <item>com.google.android.youtube.tv</item>
+        <item>com.smarttube.stable</item>
+        <item>com.netflix.ninja</item>
+        <item>com.disney.disneyplus</item>
+        <item>com.spotify.tv.android</item>
+        <item>org.xbmc.kodi</item>
+        <item>com.android.vending</item>
+    </string-array>
+</resources>

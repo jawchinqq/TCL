@@ -1,0 +1,20 @@
+package com.cleanyourtv.launcher;
+
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+
+public class AppEntry {
+    public final String label;
+    public final String packageName;
+    public final Drawable icon;
+    public final Intent launchIntent;
+    public final int dominantColor;
+
+    public AppEntry(String label, String packageName, Drawable icon, Intent launchIntent, int dominantColor) {
+        this.label = label;
+        this.packageName = packageName;
+        this.icon = icon;
+        this.launchIntent = launchIntent;
+        this.dominantColor = dominantColor;
+    }
+}

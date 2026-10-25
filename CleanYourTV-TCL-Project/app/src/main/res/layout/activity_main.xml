@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:paddingHorizontal="48dp"
+    android:paddingVertical="32dp">
+
+    <!-- 背景環境光暈 (隨選中 App 主色調動態變化) -->
+    <View
+        android:id="@+id/ambient_glow"
+        android:layout_width="560dp"
+        android:layout_height="260dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp"
+        android:alpha="0.35"
+        android:background="@drawable/bg_dock" />
+
+    <!-- 左上角：問候語、極簡大時鐘與日期 -->
+    <LinearLayout
+        android:id="@+id/top_left_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_greeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome Home"
+            android:textColor="#99FFFFFF"
+            android:textSize="15sp" />
+
+        <TextClock
+            android:id="@+id/text_clock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:format12Hour="hh:mm"
+            android:format24Hour="HH:mm"
+            android:fontFamily="sans-serif-light"
+            android:textColor="#FFFFFFFF"
+            android:textSize="54sp" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#AAFFFFFF"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- 右上角：Apple TV 風格毛玻璃膠囊按鈕 (輸入源、Wi-Fi、系統設定) -->
+    <LinearLayout
+        android:id="@+id/top_right_pills"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn_inputs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bg_pill"
+            android:focusable="true"
+            android:nextFocusLeft="@id/btn_inputs"
+            android:nextFocusRight="@id/btn_wifi"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:text="訊號源 Inputs"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/btn_wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bg_pill"
+            android:focusable="true"
+            android:nextFocusLeft="@id/btn_inputs"
+            android:nextFocusRight="@id/btn_settings"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:text="Wi-Fi"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/btn_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_pill"
+            android:focusable="true"
+            android:nextFocusLeft="@id/btn_wifi"
+            android:nextFocusRight="@id/btn_settings"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:text="設定 Settings"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- 中央大字標題：顯示當前選取的 App 名稱 -->
+    <TextView
+        android:id="@+id/tv_focused_app_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/dock_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp"
+        android:fontFamily="sans-serif-light"
+        android:letterSpacing="0.04"
+        android:text="CleanYourTV"
+        android:textColor="#FFFFFFFF"
+        android:textSize="32sp" />
+
+    <!-- 中段：Apple TV 風格圓角半透明 Dock 欄 -->
+    <FrameLayout
+        android:id="@+id/dock_container"
+        android:layout_width="match_parent"
+        android:layout_height="148dp"
+        android:layout_above="@+id/rv_grid"
+        android:layout_marginBottom="22dp"
+        android:background="@drawable/bg_dock"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingHorizontal="18dp"
+        android:paddingVertical="14dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_dock"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false" />
+    </FrameLayout>
+
+    <!-- 下方：其餘所有應用程式網格 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_grid"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
+        android:clipChildren="false"
+        android:clipToPadding="false" />
+
+</RelativeLayout>
